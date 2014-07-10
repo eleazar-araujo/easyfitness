@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EasyFitness</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="formulas_array">
+        <item>Mifflin-St Jeor</item>
+        <item>Harris-Benedict</item>
+        <item>Katch-McArdle (Body Fat %)</item>
+    </string-array>
+    <string-array name="exercise_level_array">
+        <item>Little/no exercise</item>
+        <item>3 times/week</item>
+        <item>4 times/week</item>
+        <item>5 times/week</item>
+        <item>5 times/week (intense)</item>
+        <item>6 times/week</item>
+        <item>Every day</item>
+    </string-array>
+
+</resources>
