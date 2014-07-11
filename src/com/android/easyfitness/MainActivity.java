@@ -1,11 +1,12 @@
 package com.android.easyfitness;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.android.easyfitness.fragment.CalculatorFragment;
 import com.android.easyfitness.fragment.MacroGraphsFragment;
@@ -14,17 +15,49 @@ public class MainActivity extends Activity {
 
 	private CalculatorFragment calculatorFragment;
 	private MacroGraphsFragment macroGraphsFragment;
-	private LinearLayout layoutCalculator;
-	private LinearLayout layoutMacroGraphs;
+	private RelativeLayout layoutCalculator;
+	private RelativeLayout layoutMacroGraphs;
 	private FragmentManager fragmentManager;
+	private View highlightMacroGraphs;
+	private View highlightCalculator;
+	private int minimumCalories = 1571;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction()
-					.add(R.id.container, new CalculatorFragment()).commit();
+		layoutCalculator = (RelativeLayout) findViewById(R.id.layoutCalculator);
+		layoutMacroGraphs = (RelativeLayout) findViewById(R.id.layoutMacroGraphs);
+		fragmentManager = getFragmentManager();
+		calculatorFragment = (CalculatorFragment) fragmentManager
+				.findFragmentById(R.id.calculatorFragment);
+		macroGraphsFragment = (MacroGraphsFragment) fragmentManager
+				.findFragmentById(R.id.macroGraphsFragment);
+		highlightCalculator = (View) findViewById(R.id.highlightCalculator);
+		highlightMacroGraphs = (View) findViewById(R.id.highlightMacroGraphs);
+		// fragmentManager.beginTransaction().hide(pollListFragment).commit();
+		onClickChangeTab(layoutCalculator);
+	}
+
+	public void onClickChangeTab(View view) {
+		switch (view.getId()) {
+		case R.id.layoutCalculator:
+			highlightMacroGraphs.setVisibility(View.INVISIBLE);
+			highlightCalculator.setVisibility(View.VISIBLE);
+			fragmentManager.beginTransaction().show(calculatorFragment)
+					.hide(macroGraphsFragment).commit();
+			break;
+
+		case R.id.layoutMacroGraphs:
+			highlightMacroGraphs.setVisibility(View.VISIBLE);
+			highlightCalculator.setVisibility(View.INVISIBLE);
+			fragmentManager.beginTransaction().show(macroGraphsFragment)
+					.hide(calculatorFragment).commit();
+
+			break;
+
+		default:
+			break;
 		}
 	}
 
@@ -41,9 +74,15 @@ public class MainActivity extends Activity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	public int getMinimumCalories() {
+		return minimumCalories;
+	}
+
+	public void setMinimumCalories(int minimumCalories) {
+		this.minimumCalories = minimumCalories;
+		macroGraphsFragment.onMinimumCaloriesChanged(minimumCalories);
 	}
 }

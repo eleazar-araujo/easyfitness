@@ -379,6 +379,7 @@
             <RelativeLayout
                 android:id="@+id/layoutExerciseLevel"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content" >
 
                 <TextView
@@ -416,6 +417,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginBottom="5dp"
+                android:visibility="gone"
                 android:layout_marginTop="5dp"
                 android:background="@color/gray_light" />
 
@@ -431,109 +433,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/light_gray" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your TDEE"
-                android:textColor="@color/sky_blue"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="Daily Caloric Needs"
-                android:textSize="12sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:orientation="vertical"
-                android:padding="15dp" >
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:text="Maintenance"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/textMaintenance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:text="1886 cal/day"
-                        android:textSize="15sp" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/gray_light" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:text="Fat Loss"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/textFatLoss"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:text="1509 cal/day"
-                        android:textSize="15sp" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/gray_light" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:text="Bulking"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/textBulking"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:text="2169 cal/day"
-                        android:textSize="15sp" />
-                </RelativeLayout>
-            </LinearLayout>
-        </LinearLayout>
 
         <View
             android:layout_width="match_parent"

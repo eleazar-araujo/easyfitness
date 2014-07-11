@@ -4,11 +4,91 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <FrameLayout
-        android:id="@+id/container"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/layoutCalculator"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="50"
+            android:background="@color/sky_blue"
+            android:onClick="onClickChangeTab"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/labelCalculatorTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:padding="18dp"
+                android:text="Calculators"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/highlightCalculator"
+                android:layout_width="match_parent"
+                android:layout_height="7dp"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/white" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
+
+        <RelativeLayout
+            android:id="@+id/layoutMacroGraphs"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="50"
+            android:background="@color/sky_blue"
+            android:onClick="onClickChangeTab"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/labelMacroGraphsTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:padding="18dp"
+                android:text="Macronutrient charts"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/highlightMacroGraphs"
+                android:layout_width="match_parent"
+                android:layout_height="7dp"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.android.easyfitness.MainActivity"
-        tools:ignore="MergeRootFrame" />
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <fragment
+            android:id="@+id/calculatorFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.android.easyfitness.fragment.CalculatorFragment" />
+
+        <fragment
+            android:id="@+id/macroGraphsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.android.easyfitness.fragment.MacroGraphsFragment" />
+    </LinearLayout>
 
 </LinearLayout>

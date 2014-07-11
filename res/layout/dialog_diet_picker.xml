@@ -20,6 +20,8 @@
         android:id="@+id/listDietTypes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:divider="@color/sub_bar"
+        android:dividerHeight="1dp" />
 
 </LinearLayout>

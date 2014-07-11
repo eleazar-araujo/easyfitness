@@ -19,10 +19,12 @@ public class NumberPickerDialog extends Dialog {
 	private int resourceSelected;
 	private Context context;
 	private NumberPicker numberPicker;
+	private int currentNumber;
 
 	public NumberPickerDialog(Activity activity, PickerListener listener,
-			int resourceToUpdate) {
+			int resourceToUpdate, int currentNumber) {
 		super(activity);
+		this.currentNumber = currentNumber;
 		this.context = activity;
 		this.listener = listener;
 		this.resourceSelected = resourceToUpdate;
@@ -35,6 +37,7 @@ public class NumberPickerDialog extends Dialog {
 		setContentView(R.layout.dialog_number_picker);
 		TextView textHint = (TextView) findViewById(R.id.textHint);
 		numberPicker = (NumberPicker) findViewById(R.id.numberPicker);
+		numberPicker.setCurrent(currentNumber);
 
 		setCanceledOnTouchOutside(true);
 		String text = "Hello World";
@@ -66,9 +69,17 @@ public class NumberPickerDialog extends Dialog {
 							Toast.LENGTH_SHORT).show();
 
 				} else {
-					numberPicker.updateCurrent();
-					listener.onConfirm(resourceSelected, numberToUpdate);
-					NumberPickerDialog.this.dismiss();
+					int numberExtracted = numberPicker.updateCurrent();
+					if (numberExtracted != -1) {
+						numberToUpdate = String.valueOf(numberExtracted);
+						listener.onConfirm(resourceSelected, numberToUpdate);
+						NumberPickerDialog.this.dismiss();
+					} else {
+						Toast.makeText(context, "Please enter a valid number",
+								Toast.LENGTH_SHORT).show();
+
+					}
+
 				}
 
 			}

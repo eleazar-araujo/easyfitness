@@ -1,9 +1,9 @@
 package com.android.easyfitness.fragment;
 
+import android.app.Fragment;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.easyfitness.MainActivity;
 import com.android.easyfitness.R;
 import com.android.easyfitness.dialog.DietPickerDialog;
 import com.android.easyfitness.dialog.DietPickerDialog.DietListener;
@@ -32,7 +33,6 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 	public static final double[] lowFatDiet = new double[] { 0.6, 0.25, 0.15 };
 	public static final double[] lowCarbDiet = new double[] { 0.25, 0.40, 0.35 };
 	private int currentDietId;
-	private int numberCaloriesPerDay;
 	private int mealsPerDay;
 	private int carbsPerMeal;
 	private int proteinPerMeal;
@@ -45,14 +45,15 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 	private TextView textCarbsMeal;
 	private TextView textProteinMeal;
 	private TextView textFatMeal;
-	private TextView textCarbsPercentage;
-	private TextView textProteinPercentage;
-	private TextView textFatPercentage;
+	private TextView textCarbsPercentageDaily;
+	private TextView textProteinPercentageDaily;
+	private TextView textFatPercentageDaily;
 	private PieGraph pieGraphDiet;
 	private PieGraph pieGraphDaily;
 	private Spinner spinnerMealsPerDay;
 	private ImageView imageSelectorDiet;
 	private double[] currentDietValues;
+	private MainActivity mainActivity;
 
 	public MacroGraphsFragment() {
 	}
@@ -60,8 +61,8 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_main, container,
-				false);
+		View rootView = inflater.inflate(R.layout.fragment_macro_graphics,
+				container, false);
 		return rootView;
 	}
 
@@ -69,6 +70,7 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 	public void onActivityCreated(Bundle savedState) {
 		super.onActivityCreated(savedState);
 		currentDietId = 2;
+		mainActivity = (MainActivity) getActivity();
 		currentDietValues = moderateDiet;
 		mealsPerDay = 3;
 		setViews();
@@ -85,7 +87,6 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 				R.id.imageSelectorDiet);
 		textCaloriesPerDay = (TextView) getActivity().findViewById(
 				R.id.textCaloriesPerDay);
-		numberCaloriesPerDay = Integer.valueOf(textCaloriesPerDay.toString());
 		textDietType = (TextView) getActivity().findViewById(R.id.textDietType);
 
 		textCarbsDay = (TextView) getActivity().findViewById(R.id.textCarbsDay);
@@ -97,10 +98,12 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 		textProteinMeal = (TextView) getActivity().findViewById(
 				R.id.textProteinMeal);
 		textFatMeal = (TextView) getActivity().findViewById(R.id.textFatMeal);
-		textFatPercentage = (TextView) getActivity().findViewById(
-				R.id.textFatPercentage);
-		textProteinPercentage = (TextView) getActivity().findViewById(
-				R.id.textProteinPercentage);
+		textCarbsPercentageDaily = (TextView) getActivity().findViewById(
+				R.id.textCarbsPercentageDaily);
+		textFatPercentageDaily = (TextView) getActivity().findViewById(
+				R.id.textFatPercentageDaily);
+		textProteinPercentageDaily = (TextView) getActivity().findViewById(
+				R.id.textProteinPercentageDaily);
 
 		spinnerMealsPerDay = (Spinner) getActivity().findViewById(
 				R.id.spinnerMealsPerDay);
@@ -155,10 +158,10 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 	private void drawDietGraph() {
 		final Resources resources = getResources();
 
-		Double carbsDouble = numberCaloriesPerDay * currentDietValues[0];
-		Double proteinDouble = numberCaloriesPerDay * currentDietValues[1];
-		Double fatDouble = numberCaloriesPerDay * currentDietValues[2];
-
+		Double carbsDouble = (mainActivity.getMinimumCalories() * currentDietValues[0]) / 4.00;
+		Double proteinDouble = (mainActivity.getMinimumCalories() * currentDietValues[1]) / 4.00;
+		Double fatDouble = (mainActivity.getMinimumCalories() * currentDietValues[2]) / 9.00;
+		pieGraphDiet.clearSlices();
 		final int carbsInt = carbsDouble.intValue();
 		final int proteinInt = proteinDouble.intValue();
 		final int fatInt = fatDouble.intValue();
@@ -166,13 +169,12 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 		textCarbsDay.setText(String.valueOf(carbsInt) + " g/day");
 		textProteinDay.setText(String.valueOf(proteinInt) + " g/day");
 		textFatDay.setText(String.valueOf(fatInt) + " g/day");
-
-		textCarbsPercentage.setText(String.valueOf(currentDietValues[0] * 100)
-				+ "%");
-		textProteinPercentage.setText(String
+		textCarbsPercentageDaily.setText(String
+				.valueOf(currentDietValues[0] * 100) + "%");
+		textProteinPercentageDaily.setText(String
 				.valueOf(currentDietValues[1] * 100) + "%");
-		textFatPercentage.setText(String.valueOf(currentDietValues[2] * 100)
-				+ "%");
+		textFatPercentageDaily.setText(String
+				.valueOf(currentDietValues[2] * 100) + "%");
 
 		PieSlice slice = new PieSlice();
 		slice.setColor(Color.parseColor("#e16662"));
@@ -222,10 +224,10 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 	private void drawDailyGraph() {
 		final Resources resources = getResources();
 
-		Double carbsDouble = numberCaloriesPerDay * currentDietValues[0];
-		Double proteinDouble = numberCaloriesPerDay * currentDietValues[1];
-		Double fatDouble = numberCaloriesPerDay * currentDietValues[2];
-
+		Double carbsDouble = (mainActivity.getMinimumCalories() * currentDietValues[0]) / 4.00;
+		Double proteinDouble = (mainActivity.getMinimumCalories() * currentDietValues[1]) / 4.00;
+		Double fatDouble = (mainActivity.getMinimumCalories() * currentDietValues[2]) / 9.00;
+		pieGraphDaily.clearSlices();
 		carbsPerMeal = carbsDouble.intValue();
 		proteinPerMeal = proteinDouble.intValue();
 		fatPerMeal = fatDouble.intValue();
@@ -303,6 +305,15 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 			textDietType.setText("Moderate");
 		}
 
+		drawDietGraph();
+		drawDailyGraph();
+
+	}
+
+	public void onMinimumCaloriesChanged(int minimumCalories) {
+		textCaloriesPerDay = (TextView) getActivity().findViewById(
+				R.id.textCaloriesPerDay);
+		textCaloriesPerDay.setText(String.valueOf(minimumCalories));
 		drawDietGraph();
 		drawDailyGraph();
 

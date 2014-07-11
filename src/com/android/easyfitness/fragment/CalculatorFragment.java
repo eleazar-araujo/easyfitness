@@ -16,8 +16,8 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.android.easyfitness.MainActivity;
 import com.android.easyfitness.R;
 import com.android.easyfitness.dialog.NumberPickerDialog;
 import com.android.easyfitness.dialog.NumberPickerDialog.PickerListener;
@@ -45,6 +45,8 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 	private LinearLayout layoutBodyFat;
 	private Spinner spinnerExerciseLevel;
 	private Spinner spinnerFormula;
+	private ScrollView scrollView;
+	private MainActivity mainActivity;
 
 	public CalculatorFragment() {
 	}
@@ -54,12 +56,14 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_main, container,
 				false);
+		scrollView = (ScrollView) rootView;
 		return rootView;
 	}
 
 	@Override
 	public void onActivityCreated(Bundle savedState) {
 		super.onActivityCreated(savedState);
+		mainActivity = (MainActivity) getActivity();
 		setViews();
 		setListeners();
 	}
@@ -140,7 +144,8 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 			public void onClick(View v) {
 				NumberPickerDialog dialog = new NumberPickerDialog(
 						getActivity(), CalculatorFragment.this, layoutAge
-								.getId());
+								.getId(), Integer.parseInt(textAge.getText()
+								.toString()));
 				dialog.show();
 			}
 		});
@@ -148,9 +153,12 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 
 			@Override
 			public void onClick(View v) {
+
+				final String[] splittedHeight = textHeight.getText().toString()
+						.split(" ");
 				NumberPickerDialog dialog = new NumberPickerDialog(
 						getActivity(), CalculatorFragment.this, layoutHeight
-								.getId());
+								.getId(), Integer.parseInt(splittedHeight[0]));
 				dialog.show();
 			}
 		});
@@ -158,9 +166,11 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 
 			@Override
 			public void onClick(View v) {
+				final String[] splittedWeight = textWeight.getText().toString()
+						.split(" ");
 				NumberPickerDialog dialog = new NumberPickerDialog(
 						getActivity(), CalculatorFragment.this, layoutWeight
-								.getId());
+								.getId(), Integer.parseInt(splittedWeight[0]));
 				dialog.show();
 			}
 		});
@@ -169,19 +179,18 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 
 			@Override
 			public void onClick(View v) {
-				NumberPickerDialog dialog = new NumberPickerDialog(
-						getActivity(), CalculatorFragment.this, layoutProfile
-								.getId());
-				dialog.show();
+
 			}
 		});
 		layoutBodyFat.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
+				final String[] splittedBodyFat = textBodyFat.getText()
+						.toString().split("%");
 				NumberPickerDialog dialog = new NumberPickerDialog(
 						getActivity(), CalculatorFragment.this, layoutBodyFat
-								.getId());
+								.getId(), Integer.parseInt(splittedBodyFat[0]));
 				dialog.show();
 			}
 		});
@@ -269,14 +278,7 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 		weightString = weightString.substring(0, indexofSpace);
 		Double weightNumber = Double.parseDouble(weightString);
 
-		String exerciseLevelString = spinnerExerciseLevel.getSelectedItem()
-				.toString();
-		Toast.makeText(getActivity(), exerciseLevelString, Toast.LENGTH_SHORT)
-				.show();
-		Log.i("calculateBMR", exerciseLevelString);
 		String formulaString = spinnerFormula.getSelectedItem().toString();
-		Toast.makeText(getActivity(), formulaString, Toast.LENGTH_SHORT).show();
-		Log.i("calculateBMR", formulaString);
 
 		Double bmrDouble = 0.0;
 
@@ -299,23 +301,19 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 		} else if (formulaString.equals("Katch-McArdle (Body Fat %)")) {
 			Double bodyFatDouble = Double.parseDouble(textBodyFat.getText()
 					.toString());
-			String s = String.format("leanBodyMass is %1$s - (%2$s * %3$s)",
-					weightNumber, weightNumber, bodyFatDouble / 100.00);
-			Toast.makeText(getActivity(), s, Toast.LENGTH_SHORT).show();
 			Double leanBodyMass = weightNumber
 					- (weightNumber * (bodyFatDouble / 100.00));
 			bmrDouble = 370 + (21.6 * leanBodyMass);
 		}
 		int bmrInt = bmrDouble.intValue();
-		textBMR.setText(String.valueOf(bmrInt));
+		mainActivity.setMinimumCalories(bmrInt);
+		textBMR.setText(String.valueOf(bmrInt) + " cal/day");
 	}
 
 	private void calculateWaterIntake() {
 		String weightString = textWeight.getText().toString();
 		int indexofSpace = weightString.indexOf(" ");
 		weightString = weightString.substring(0, indexofSpace);
-		Toast.makeText(getActivity(), weightString + "is the new weight",
-				Toast.LENGTH_SHORT).show();
 		Double weightNumber = Double.parseDouble(weightString);
 		Double poundsDouble = weightNumber * 2.2046;
 		Double waterOuncesDouble = poundsDouble / 2.00;
@@ -350,13 +348,15 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 	}
 
 	private final void focusOnView() {
-		final ScrollView scrollView = (ScrollView) getActivity().findViewById(
-				R.id.scrollViewCalculator);
+		TextView textWaterIntakee = textWaterIntake;
+		int i = textWaterIntakee.getBottom();
+		final Float f = textAerobic.getX();
+		final Float f2 = textAerobic.getX();
+
 		new Handler().post(new Runnable() {
 			@Override
 			public void run() {
-				scrollView.smoothScrollTo(textWaterIntake.getTop(),
-						textWaterIntake.getBottom());
+				scrollView.smoothScrollTo(f.intValue(), f2.intValue());
 			}
 		});
 	}

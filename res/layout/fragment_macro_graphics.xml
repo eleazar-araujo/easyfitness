@@ -82,29 +82,29 @@
                     android:layout_marginBottom="20dp" >
 
                     <TextView
-                        android:layout_centerVertical="true"
                         android:id="@+id/labelDiet"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
                         android:text="Diet: "
                         android:textSize="15sp" />
 
                     <TextView
-                        android:layout_centerVertical="true"
                         android:id="@+id/textDietType"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/labelDiet"
                         android:text="Moderate"
                         android:textSize="15sp" />
 
                     <ImageView
                         android:id="@+id/imageSelectorDiet"
-                        android:layout_centerVertical="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
                         android:src="@drawable/selector_diet" />
                 </RelativeLayout>
 
@@ -133,18 +133,26 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="30"
-                        android:gravity="center"
-                        android:orientation="vertical" >
+                        android:gravity="left"
+                        android:orientation="horizontal" >
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:src="@drawable/circle_carbs_day" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:text="Carb"
+                            android:textSize="15sp" />
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/textCarbsPercentage"
+                        android:id="@+id/textCarbsPercentageDaily"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="30"
@@ -162,9 +170,9 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/gray_light" />
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/sub_bar" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -176,18 +184,26 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="30"
-                        android:gravity="center"
-                        android:orientation="vertical" >
+                        android:gravity="left"
+                        android:orientation="horizontal" >
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:src="@drawable/circle_protein_day" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:text="Protein"
+                            android:textSize="15sp" />
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/textProteinPercentage"
+                        android:id="@+id/textProteinPercentageDaily"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="30"
@@ -205,9 +221,9 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/gray_light" />
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/sub_bar" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -219,18 +235,26 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="30"
-                        android:gravity="center"
-                        android:orientation="vertical" >
+                        android:gravity="left"
+                        android:orientation="horizontal" >
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:src="@drawable/circle_fat_day" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:text="Fat"
+                            android:textSize="15sp" />
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/textFatPercentage"
+                        android:id="@+id/textFatPercentageDaily"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="30"
@@ -313,22 +337,23 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="30"
-                        android:gravity="center"
-                        android:orientation="vertical" >
+                        android:gravity="left"
+                        android:orientation="horizontal" >
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:src="@drawable/circle_carbs_meal" />
-                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="30"
-                        android:gravity="center"
-                        android:text="5%" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:text="Carb"
+                            android:textSize="15sp" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/textCarbsMeal"
@@ -341,9 +366,9 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/gray_light" />
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/sub_bar" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -355,22 +380,23 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="30"
-                        android:gravity="center"
-                        android:orientation="vertical" >
+                        android:gravity="left"
+                        android:orientation="horizontal" >
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:src="@drawable/circle_protein_meal" />
-                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="30"
-                        android:gravity="center"
-                        android:text="5%" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:text="Protein"
+                            android:textSize="15sp" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/textProteinMeal"
@@ -383,9 +409,9 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/gray_light" />
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/sub_bar" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -397,22 +423,23 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="30"
-                        android:gravity="center"
-                        android:orientation="vertical" >
+                        android:gravity="left"
+                        android:orientation="horizontal" >
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                            android:layout_gravity="left"
                             android:src="@drawable/circle_fat_meal" />
-                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="30"
-                        android:gravity="center"
-                        android:text="5%" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:text="Fat"
+                            android:textSize="15sp" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/textFatMeal"
