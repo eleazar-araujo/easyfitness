@@ -19,5 +19,18 @@
         <item>6 times/week</item>
         <item>Every day</item>
     </string-array>
+    <string-array name="meals_per_day_array">
+        <item>1 meal/day</item>
+        <item>2 meals/day</item>
+        <item>3 meals/day</item>
+        <item>4 meals/day</item>
+        <item>5 meals/day</item>
+    </string-array>
+    <string-array name="diet_type_array">
+        <item>Moderate</item>
+        <item>Low Carb</item>
+        <item>Low Fat</item>
+        <item>Ketogenic</item>
+    </string-array>
 
 </resources>

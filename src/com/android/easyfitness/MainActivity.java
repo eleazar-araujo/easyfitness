@@ -2,12 +2,21 @@ package com.android.easyfitness;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 
 import com.android.easyfitness.fragment.CalculatorFragment;
+import com.android.easyfitness.fragment.MacroGraphsFragment;
 
 public class MainActivity extends Activity {
+
+	private CalculatorFragment calculatorFragment;
+	private MacroGraphsFragment macroGraphsFragment;
+	private LinearLayout layoutCalculator;
+	private LinearLayout layoutMacroGraphs;
+	private FragmentManager fragmentManager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
