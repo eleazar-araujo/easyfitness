@@ -9,9 +9,8 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.quietlycoding.android.picker.NumberPicker;
-import com.quietlycoding.android.picker.NumberPickerButton;
 import com.android.easyfitness.R;
+import com.android.easyfitness.view.NumberPicker;
 
 public class NumberPickerDialog extends Dialog {
 

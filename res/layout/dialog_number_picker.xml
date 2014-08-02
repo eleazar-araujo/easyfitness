@@ -16,11 +16,11 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <com.quietlycoding.android.picker.NumberPicker
+    <com.android.easyfitness.view.NumberPicker
         android:id="@+id/numberPicker"
-        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20sp" />
 
     <LinearLayout

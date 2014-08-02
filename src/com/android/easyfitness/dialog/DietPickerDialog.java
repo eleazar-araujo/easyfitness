@@ -12,14 +12,11 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.android.easyfitness.R;
 import com.android.easyfitness.adapter.DietTypeAdapter;
-import com.android.easyfitness.dialog.NumberPickerDialog.PickerListener;
 import com.android.easyfitness.fragment.MacroGraphsFragment;
 import com.android.easyfitness.model.DietType;
-import com.quietlycoding.android.picker.NumberPicker;
 
 public class DietPickerDialog extends Dialog {
 
