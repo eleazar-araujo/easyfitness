@@ -40,7 +40,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class PieGraph extends View {
-	private static final float THICKNESS_CONSTANT = 50f;
+	private static float thicknessMultiplier = 40f;
 	private ArrayList<PieSlice> slices = new ArrayList<PieSlice>();
 	private Paint paint = new Paint();
 	private Path path = new Path();
@@ -59,13 +59,13 @@ public class PieGraph extends View {
 
 	public PieGraph(Context context) {
 		super(context);
-		thickness = (int) (THICKNESS_CONSTANT * context.getResources()
+		thickness = (int) (thicknessMultiplier * context.getResources()
 				.getDisplayMetrics().density);
 	}
 
 	public PieGraph(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		thickness = (int) (THICKNESS_CONSTANT * context.getResources()
+		thickness = (int) (thicknessMultiplier * context.getResources()
 				.getDisplayMetrics().density);
 	}
 

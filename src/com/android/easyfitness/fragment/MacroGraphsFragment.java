@@ -54,6 +54,7 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 	private ImageView imageSelectorDiet;
 	private double[] currentDietValues;
 	private MainActivity mainActivity;
+	private int colorTouched;
 
 	public MacroGraphsFragment() {
 	}
@@ -71,6 +72,7 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 		super.onActivityCreated(savedState);
 		currentDietId = 2;
 		mainActivity = (MainActivity) getActivity();
+		colorTouched = mainActivity.getResources().getColor(R.color.chart_touched);
 		currentDietValues = moderateDiet;
 		mealsPerDay = 3;
 		setViews();
@@ -178,19 +180,19 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 
 		PieSlice slice = new PieSlice();
 		slice.setColor(Color.parseColor("#e16662"));
-		slice.setSelectedColor(resources.getColor(android.R.color.white));
+		slice.setSelectedColor(colorTouched);
 		slice.setValue(carbsInt);
 		pieGraphDiet.addSlice(slice);
 
 		slice = new PieSlice();
 		slice.setColor(Color.parseColor("#4ad0bc"));
-		slice.setSelectedColor(resources.getColor(android.R.color.white));
+		slice.setSelectedColor(colorTouched);
 		slice.setValue(proteinInt);
 		pieGraphDiet.addSlice(slice);
 
 		slice = new PieSlice();
 		slice.setColor(Color.parseColor("#fdbc27"));
-		slice.setSelectedColor(resources.getColor(android.R.color.white));
+		slice.setSelectedColor(colorTouched);
 		slice.setValue(fatInt);
 		pieGraphDiet.addSlice(slice);
 
@@ -205,11 +207,11 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 					break;
 
 				case 1:
-					text = carbsInt + text;
+					text = proteinInt + text;
 					break;
 
 				case 2:
-					text = carbsInt + text;
+					text = fatInt + text;
 					break;
 
 				default:
@@ -242,19 +244,19 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 
 		PieSlice slice = new PieSlice();
 		slice.setColor(Color.parseColor("#8c304a"));
-		slice.setSelectedColor(resources.getColor(android.R.color.white));
+		slice.setSelectedColor(colorTouched);
 		slice.setValue(carbsPerMeal);
 		pieGraphDaily.addSlice(slice);
 
 		slice = new PieSlice();
 		slice.setColor(Color.parseColor("#00bcdd"));
-		slice.setSelectedColor(resources.getColor(android.R.color.white));
+		slice.setSelectedColor(colorTouched);
 		slice.setValue(proteinPerMeal);
 		pieGraphDaily.addSlice(slice);
 
 		slice = new PieSlice();
 		slice.setColor(Color.parseColor("#e18454"));
-		slice.setSelectedColor(resources.getColor(android.R.color.white));
+		slice.setSelectedColor(colorTouched);
 		slice.setValue(fatPerMeal);
 		pieGraphDaily.addSlice(slice);
 
