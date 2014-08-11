@@ -1,4 +1,4 @@
-package com.android.easyfitness.model;
+package com.ele.easyfitness.android.model;
 
 public class DietType {
 	private String name;

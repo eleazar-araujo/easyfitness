@@ -21,7 +21,7 @@
        under the License.
  */
 
-package com.android.easyfitness.view;
+package com.ele.easyfitness.android.view;
 
 import android.graphics.Path;
 import android.graphics.Rect;

@@ -1,4 +1,4 @@
-package com.android.easyfitness.dialog;
+package com.ele.easyfitness.android.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -9,8 +9,8 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.easyfitness.R;
-import com.android.easyfitness.view.NumberPicker;
+import com.ele.easyfitness.android.R;
+import com.ele.easyfitness.android.view.NumberPicker;
 
 public class NumberPickerDialog extends Dialog {
 

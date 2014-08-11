@@ -1,23 +1,16 @@
-package com.android.easyfitness.adapter;
+package com.ele.easyfitness.android.adapter;
 
-import java.util.Calendar;
 import java.util.List;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.easyfitness.R;
-import com.android.easyfitness.model.DietType;
+import com.ele.easyfitness.android.R;
+import com.ele.easyfitness.android.model.DietType;
 
 public class DietTypeAdapter extends BaseAdapter {
 	private static final String LOG_TAG = "QuizMaker-StudentQuizAdapter";

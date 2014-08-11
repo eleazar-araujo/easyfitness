@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.easyfitness.view;
+package com.ele.easyfitness.android.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -22,7 +22,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.widget.ImageButton;
 
-import com.android.easyfitness.R;
+import com.ele.easyfitness.android.R;
 
 /**
  * This class exists purely to cancel long click events.

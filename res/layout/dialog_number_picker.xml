@@ -16,7 +16,7 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <com.android.easyfitness.view.NumberPicker
+    <com.ele.easyfitness.android.view.NumberPicker
         android:id="@+id/numberPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

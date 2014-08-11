@@ -1,9 +1,9 @@
-package com.android.easyfitness.view;
+package com.ele.easyfitness.android.view;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.android.easyfitness.R;
+import com.ele.easyfitness.android.R;
 
 public class Picker extends Activity
 {

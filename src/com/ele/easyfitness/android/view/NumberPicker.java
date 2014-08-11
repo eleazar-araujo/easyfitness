@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.easyfitness.view;
+package com.ele.easyfitness.android.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -35,7 +35,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.easyfitness.R;
+import com.ele.easyfitness.android.R;
 
 /**
  * This class has been pulled from the Android platform source code, its an

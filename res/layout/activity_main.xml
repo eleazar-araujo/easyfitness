@@ -15,7 +15,7 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="50"
-            android:background="@color/sky_blue"
+            android:background="@color/light_gray"
             android:onClick="onClickChangeTab"
             android:orientation="vertical" >
 
@@ -48,7 +48,7 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="50"
-            android:background="@color/sky_blue"
+            android:background="@color/light_gray"
             android:onClick="onClickChangeTab"
             android:orientation="vertical" >
 
@@ -82,13 +82,13 @@
             android:id="@+id/calculatorFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            class="com.android.easyfitness.fragment.CalculatorFragment" />
+            class="com.ele.easyfitness.android.fragment.CalculatorFragment" />
 
         <fragment
             android:id="@+id/macroGraphsFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            class="com.android.easyfitness.fragment.MacroGraphsFragment" />
+            class="com.ele.easyfitness.android.fragment.MacroGraphsFragment" />
     </LinearLayout>
 
 </LinearLayout>

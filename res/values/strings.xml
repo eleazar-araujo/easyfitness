@@ -33,4 +33,10 @@
         <item>Ketogenic</item>
     </string-array>
 
+    <string name="info_bmr">Basal Metabolic Rate (BMR)  is the rate of energy expenditure at rest. This means that you should consume at least this quantity of calories for your body to function properly</string>
+    <string name="info_bmi">Body mass index (BMI), is a measure of relative weight based on an individual&amp;apos;s mass and height. The normal range of BMI is between 18.5 and 25</string>
+    <string name="info_water_intake">If we don\'t ingest enough fluid, dehydration can set in quickly.\nTo gauge the importance of water relative to food, consider that severe dehydration can lead to death within a matter of days, whereas we can go for weeks without food. \n\nIt\'s important to realize that we can get our fluid requirements from the food we eat, as well as the fluids we drink. For instance, an orange is 87% water</string>
+    <string name="info_target_heart_rate">Target Heart Rate Zones indicates how much your Heart Rate should be depending on the kind of physical exertion that you want to do. This number varies with age and can be calculated in several ways</string>
+    <string name="info_formulas">There are several formulas to calculate daily energy expenditures, such as:\\n Mifflin-St Jeor\\nHarris-Benedict\\nKatch-McArdle\\n All these formulas have different levels of precision. Nonetheless, if you have your body fat % use Katch-McArdle as it will give youa more accurate number</string>
+
 </resources>

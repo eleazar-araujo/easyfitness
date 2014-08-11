@@ -1,4 +1,4 @@
-package com.android.easyfitness.fragment;
+package com.ele.easyfitness.android.fragment;
 
 import android.app.Fragment;
 import android.content.res.Resources;
@@ -14,13 +14,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.easyfitness.MainActivity;
-import com.android.easyfitness.R;
-import com.android.easyfitness.dialog.DietPickerDialog;
-import com.android.easyfitness.dialog.DietPickerDialog.DietListener;
-import com.android.easyfitness.view.PieGraph;
-import com.android.easyfitness.view.PieGraph.OnSliceClickedListener;
-import com.android.easyfitness.view.PieSlice;
+import com.ele.easyfitness.android.MainActivity;
+import com.ele.easyfitness.android.R;
+import com.ele.easyfitness.android.dialog.DietPickerDialog;
+import com.ele.easyfitness.android.dialog.DietPickerDialog.DietListener;
+import com.ele.easyfitness.android.view.PieGraph;
+import com.ele.easyfitness.android.view.PieGraph.OnSliceClickedListener;
+import com.ele.easyfitness.android.view.PieSlice;
 
 public class MacroGraphsFragment extends Fragment implements DietListener {
 

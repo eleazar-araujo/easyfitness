@@ -10,7 +10,7 @@
     android:text="Hello World, Picker"
     />
 
-<com.android.easyfitness.view.NumberPicker
+<com.ele.easyfitness.android.view.NumberPicker
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content" />
 	

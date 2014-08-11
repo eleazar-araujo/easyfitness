@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.android.easyfitness.MainActivity$PlaceholderFragment" >
+    tools:context="com.ele.easyfitness.android.MainActivity$PlaceholderFragment" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -379,8 +379,8 @@
             <RelativeLayout
                 android:id="@+id/layoutExerciseLevel"
                 android:layout_width="match_parent"
-                android:visibility="gone"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
 
                 <TextView
                     android:id="@+id/labelExerciseLevel"
@@ -417,9 +417,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginBottom="5dp"
-                android:visibility="gone"
                 android:layout_marginTop="5dp"
-                android:background="@color/gray_light" />
+                android:background="@color/gray_light"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/buttonCalculate"
@@ -450,7 +450,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="BMR &amp; BMI"
-                android:textColor="@color/sky_blue"
+                android:textColor="@color/light_gray"
                 android:textSize="15sp" />
 
             <LinearLayout
@@ -461,6 +461,7 @@
                 android:padding="15dp" >
 
                 <RelativeLayout
+                    android:id="@+id/layoutBMR"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
@@ -475,9 +476,18 @@
                         android:id="@+id/textBMR"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_toLeftOf="@+id/moreInfoBMR"
                         android:text="1571 cal/day"
                         android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@id/moreInfoBMR"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/info_more" />
                 </RelativeLayout>
 
                 <View
@@ -488,6 +498,7 @@
                     android:background="@color/gray_light" />
 
                 <RelativeLayout
+                    android:id="@+id/layoutBMI"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
@@ -502,9 +513,18 @@
                         android:id="@+id/textBMI"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_toLeftOf="@+id/moreInfoBMI"
                         android:text="20.05"
                         android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@id/moreInfoBMI"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/info_more" />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
@@ -524,7 +544,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Daily Fluid Requirement"
-                android:textColor="@color/sky_blue"
+                android:textColor="@color/light_gray"
                 android:textSize="15sp" />
 
             <TextView
@@ -542,6 +562,7 @@
                 android:padding="15dp" >
 
                 <RelativeLayout
+                    android:id="@+id/layoutWater"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
@@ -556,9 +577,18 @@
                         android:id="@+id/textWaterIntake"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_toLeftOf="@+id/moreInfoWater"
                         android:text="1952 ml"
                         android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@id/moreInfoWater"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/info_more" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -574,13 +604,32 @@
             android:layout_marginTop="15dp"
             android:orientation="vertical" >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/layoutHeartRate"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="Target Heart Rate"
-                android:textColor="@color/sky_blue"
-                android:textSize="15sp" />
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Target Heart Rate"
+                    android:textColor="@color/light_gray"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/moreInfoTargetHeartRate"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="14dp"
+                    android:src="@drawable/info_more" />
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

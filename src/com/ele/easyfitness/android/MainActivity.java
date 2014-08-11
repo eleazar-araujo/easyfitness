@@ -1,4 +1,4 @@
-package com.android.easyfitness;
+package com.ele.easyfitness.android;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -8,8 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.android.easyfitness.fragment.CalculatorFragment;
-import com.android.easyfitness.fragment.MacroGraphsFragment;
+import com.ele.easyfitness.android.fragment.CalculatorFragment;
+import com.ele.easyfitness.android.fragment.MacroGraphsFragment;
 
 public class MainActivity extends Activity {
 

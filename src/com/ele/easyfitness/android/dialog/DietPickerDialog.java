@@ -1,4 +1,4 @@
-package com.android.easyfitness.dialog;
+package com.ele.easyfitness.android.dialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +13,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-import com.android.easyfitness.R;
-import com.android.easyfitness.adapter.DietTypeAdapter;
-import com.android.easyfitness.fragment.MacroGraphsFragment;
-import com.android.easyfitness.model.DietType;
+import com.ele.easyfitness.android.R;
+import com.ele.easyfitness.android.adapter.DietTypeAdapter;
+import com.ele.easyfitness.android.fragment.MacroGraphsFragment;
+import com.ele.easyfitness.android.model.DietType;
 
 public class DietPickerDialog extends Dialog {
 

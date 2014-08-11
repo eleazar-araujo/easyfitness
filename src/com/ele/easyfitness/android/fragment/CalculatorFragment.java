@@ -1,4 +1,4 @@
-package com.android.easyfitness.fragment;
+package com.ele.easyfitness.android.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -17,10 +17,11 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.android.easyfitness.MainActivity;
-import com.android.easyfitness.R;
-import com.android.easyfitness.dialog.NumberPickerDialog;
-import com.android.easyfitness.dialog.NumberPickerDialog.PickerListener;
+import com.ele.easyfitness.android.MainActivity;
+import com.ele.easyfitness.android.R;
+import com.ele.easyfitness.android.dialog.InfoDialog;
+import com.ele.easyfitness.android.dialog.NumberPickerDialog;
+import com.ele.easyfitness.android.dialog.NumberPickerDialog.PickerListener;
 
 public class CalculatorFragment extends Fragment implements PickerListener {
 
@@ -179,6 +180,9 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 
 			@Override
 			public void onClick(View v) {
+				InfoDialog dialog = new InfoDialog(getActivity(),
+						InfoDialog.FORMULAS);
+				dialog.show();
 
 			}
 		});
@@ -199,6 +203,68 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 			@Override
 			public void onClick(View arg0) {
 				calculate();
+
+			}
+		});
+
+		RelativeLayout relativeLayout = (RelativeLayout) getActivity()
+				.findViewById(R.id.layoutBMI);
+		relativeLayout.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				InfoDialog dialog = new InfoDialog(getActivity(),
+						InfoDialog.BMI);
+				dialog.show();
+
+			}
+		});
+		relativeLayout = (RelativeLayout) getActivity().findViewById(
+				R.id.layoutBMR);
+		relativeLayout.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				InfoDialog dialog = new InfoDialog(getActivity(),
+						InfoDialog.BMR);
+				dialog.show();
+
+			}
+		});
+		relativeLayout = (RelativeLayout) getActivity().findViewById(
+				R.id.layoutWater);
+		relativeLayout.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				InfoDialog dialog = new InfoDialog(getActivity(),
+						InfoDialog.WATER_INTAKE);
+				dialog.show();
+
+			}
+		});
+		relativeLayout = (RelativeLayout) getActivity().findViewById(
+				R.id.layoutHeartRate);
+		relativeLayout.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				InfoDialog dialog = new InfoDialog(getActivity(),
+						InfoDialog.TARGET_HEART_RATE);
+				dialog.show();
+
+			}
+		});
+
+		relativeLayout = (RelativeLayout) getActivity().findViewById(
+				R.id.layoutHeartRate);
+		relativeLayout.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				InfoDialog dialog = new InfoDialog(getActivity(),
+						InfoDialog.TARGET_HEART_RATE);
+				dialog.show();
 
 			}
 		});

@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:text="Grams per Day"
-                android:textColor="@color/sky_blue"
+                android:textColor="@color/light_gray"
                 android:textSize="15sp" />
 
             <LinearLayout
@@ -114,7 +114,7 @@
                     android:layout_gravity="center"
                     android:orientation="vertical" >
 
-                    <com.android.easyfitness.view.PieGraph
+                    <com.ele.easyfitness.android.view.PieGraph
                         android:id="@+id/pieGraphDiet"
                         android:layout_width="200dp"
                         android:layout_height="200dp"
@@ -282,7 +282,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:text="Grams per meal"
-                android:textColor="@color/sky_blue"
+                android:textColor="@color/light_gray"
                 android:textSize="15sp" />
 
             <LinearLayout
@@ -318,7 +318,7 @@
                     android:layout_gravity="center"
                     android:orientation="vertical" >
 
-                    <com.android.easyfitness.view.PieGraph
+                    <com.ele.easyfitness.android.view.PieGraph
                         android:id="@+id/pieGraphDaily"
                         android:layout_width="200dp"
                         android:layout_height="200dp"
