@@ -1,10 +1,14 @@
 package com.ele.easyfitness.android.fragment;
 
-import android.app.Fragment;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,6 +20,7 @@ import android.widget.Toast;
 
 import com.ele.easyfitness.android.MainActivity;
 import com.ele.easyfitness.android.R;
+import com.ele.easyfitness.android.SettingsActivity;
 import com.ele.easyfitness.android.dialog.DietPickerDialog;
 import com.ele.easyfitness.android.dialog.DietPickerDialog.DietListener;
 import com.ele.easyfitness.android.view.PieGraph;
@@ -24,6 +29,8 @@ import com.ele.easyfitness.android.view.PieSlice;
 
 public class MacroGraphsFragment extends Fragment implements DietListener {
 
+	private static final String LOG_TAG = MacroGraphsFragment.class
+			.getSimpleName();
 	public static final int KETOGENIC_ID = 1;
 	public static final int MODERATE_ID = 2;
 	public static final int LOW_FAT_ID = 3;
@@ -32,7 +39,6 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 	public static final double[] moderateDiet = new double[] { 0.5, 0.25, 0.25 };
 	public static final double[] lowFatDiet = new double[] { 0.6, 0.25, 0.15 };
 	public static final double[] lowCarbDiet = new double[] { 0.25, 0.40, 0.35 };
-	private int currentDietId;
 	private int mealsPerDay;
 	private int carbsPerMeal;
 	private int proteinPerMeal;
@@ -60,6 +66,27 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 	}
 
 	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);
+	}
+
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.fragment_macro_graphics, menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			startActivity(new Intent(getActivity(), SettingsActivity.class));
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_macro_graphics,
@@ -70,9 +97,9 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 	@Override
 	public void onActivityCreated(Bundle savedState) {
 		super.onActivityCreated(savedState);
-		currentDietId = 2;
 		mainActivity = (MainActivity) getActivity();
-		colorTouched = mainActivity.getResources().getColor(R.color.chart_touched);
+		colorTouched = mainActivity.getResources().getColor(
+				R.color.chart_touched);
 		currentDietValues = moderateDiet;
 		mealsPerDay = 3;
 		setViews();
@@ -158,8 +185,6 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 	}
 
 	private void drawDietGraph() {
-		final Resources resources = getResources();
-
 		Double carbsDouble = (mainActivity.getMinimumCalories() * currentDietValues[0]) / 4.00;
 		Double proteinDouble = (mainActivity.getMinimumCalories() * currentDietValues[1]) / 4.00;
 		Double fatDouble = (mainActivity.getMinimumCalories() * currentDietValues[2]) / 9.00;
@@ -289,7 +314,6 @@ public class MacroGraphsFragment extends Fragment implements DietListener {
 
 	@Override
 	public void onDietSelected(int dietIdPicked) {
-		currentDietId = dietIdPicked;
 		if (dietIdPicked == MODERATE_ID) {
 			currentDietValues = moderateDiet;
 			textDietType.setText("Moderate");

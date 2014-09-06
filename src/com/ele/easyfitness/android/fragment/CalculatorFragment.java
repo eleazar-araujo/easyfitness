@@ -1,10 +1,14 @@
 package com.ele.easyfitness.android.fragment;
 
-import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -19,6 +23,7 @@ import android.widget.TextView;
 
 import com.ele.easyfitness.android.MainActivity;
 import com.ele.easyfitness.android.R;
+import com.ele.easyfitness.android.SettingsActivity;
 import com.ele.easyfitness.android.dialog.InfoDialog;
 import com.ele.easyfitness.android.dialog.NumberPickerDialog;
 import com.ele.easyfitness.android.dialog.NumberPickerDialog.PickerListener;
@@ -50,6 +55,27 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 	private MainActivity mainActivity;
 
 	public CalculatorFragment() {
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);
+	}
+
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.fragment_main, menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			startActivity(new Intent(getActivity(), SettingsActivity.class));
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
@@ -118,7 +144,7 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 					public void onItemSelected(AdapterView<?> parent,
 							View view, int pos, long id) {
 						String item = (String) parent.getItemAtPosition(pos);
-						if (item.equals("Katch-McArdle (Body Fat %)")) {
+						if (item.equals("Katch-McArdle")) {
 							layoutBodyFat.setVisibility(View.VISIBLE);
 						} else {
 							layoutBodyFat.setVisibility(View.GONE);
@@ -364,7 +390,7 @@ public class CalculatorFragment extends Fragment implements PickerListener {
 				bmrDouble = 447.593 + (9.247 * weightNumber)
 						+ (3.098 * heightNumber) - (4.330 * ageNumber);
 			}
-		} else if (formulaString.equals("Katch-McArdle (Body Fat %)")) {
+		} else if (formulaString.equals("Katch-McArdle")) {
 			Double bodyFatDouble = Double.parseDouble(textBodyFat.getText()
 					.toString());
 			Double leanBodyMass = weightNumber

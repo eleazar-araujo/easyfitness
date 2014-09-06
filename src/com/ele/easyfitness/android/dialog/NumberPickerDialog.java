@@ -51,6 +51,9 @@ public class NumberPickerDialog extends Dialog {
 		case R.id.layoutWeight:
 			text = "Put your weight in kilograms";
 			break;
+		case R.id.layoutBodyFat:
+			text = "Put your body fat %";
+			break;	
 
 		default:
 			break;

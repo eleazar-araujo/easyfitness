@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <PreferenceCategory
+        android:key="stubKey"
+        android:title="stubCategory" >
+        <ListPreference
+            android:defaultValue="@string/pref_unit_system_metric"
+            android:entries="@array/pref_unit_options"
+            android:entryValues="@array/pref_unit_values"
+            android:key="@string/pref_unit_system_key"
+            android:title="@string/pref_unit_system_label" />
+
+        <EditTextPreference
+            android:defaultValue="@string/pref_user_name_default"
+            android:inputType="text"
+            android:key="@string/pref_user_name_key"
+            android:singleLine="true"
+            android:title="@string/pref_user_name_label" />
+
+        <!-- <CheckBoxPreference -->
+        <!-- android:defaultValue="false" -->
+        <!-- android:key="pref_key_auto_delete" -->
+        <!-- android:summary="@string/pref_summary_auto_delete" -->
+        <!-- android:title="@string/pref_title_auto_delete" /> -->
+    </PreferenceCategory>
+
+</PreferenceScreen>

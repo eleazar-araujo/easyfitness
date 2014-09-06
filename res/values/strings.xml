@@ -3,12 +3,33 @@
 
     <string name="app_name">EasyFitness</string>
     <string name="hello_world">Hello world!</string>
+
+    <!-- Action Bar strings -->
     <string name="action_settings">Settings</string>
 
+    <!-- Activities names -->
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Shared preferences strings -->
+    <string name="pref_unit_system_label">Unit System</string>
+    <string name="pref_unit_system_key" translatable="false">unitSystem</string>
+    <string name="pref_unit_system_default" translatable="false">metric</string>
+    
+    <string name="pref_user_name_label">User\'s Name</string>
+    <string name="pref_user_name_key" translatable="false">userName</string>
+    <string name="pref_user_name_default" translatable="false">None</string>
+
+    <!-- Prefence Settings strings -->
+    <string name="pref_unit_system_label_metric">Metric</string>
+    <string name="pref_unit_system_label_imperial">Imperial</string>
+    <string name="pref_unit_system_metric" translatable="false">metric</string>
+    <string name="pref_unit_system_imperial" translatable="false">imperial</string>
+
+    <!-- Activities strings -->
     <string-array name="formulas_array">
         <item>Mifflin-St Jeor</item>
         <item>Harris-Benedict</item>
-        <item>Katch-McArdle (Body Fat %)</item>
+        <item>Katch-McArdle</item>
     </string-array>
     <string-array name="exercise_level_array">
         <item>Little/no exercise</item>
@@ -34,9 +55,9 @@
     </string-array>
 
     <string name="info_bmr">Basal Metabolic Rate (BMR)  is the rate of energy expenditure at rest. This means that you should consume at least this quantity of calories for your body to function properly</string>
-    <string name="info_bmi">Body mass index (BMI), is a measure of relative weight based on an individual&amp;apos;s mass and height. The normal range of BMI is between 18.5 and 25</string>
+    <string name="info_bmi">Body mass index (BMI), is a measure of relative weight based on an individual\'s mass and height. The normal range of BMI is between 18.5 and 25</string>
     <string name="info_water_intake">If we don\'t ingest enough fluid, dehydration can set in quickly.\nTo gauge the importance of water relative to food, consider that severe dehydration can lead to death within a matter of days, whereas we can go for weeks without food. \n\nIt\'s important to realize that we can get our fluid requirements from the food we eat, as well as the fluids we drink. For instance, an orange is 87% water</string>
     <string name="info_target_heart_rate">Target Heart Rate Zones indicates how much your Heart Rate should be depending on the kind of physical exertion that you want to do. This number varies with age and can be calculated in several ways</string>
-    <string name="info_formulas">There are several formulas to calculate daily energy expenditures, such as:\\n Mifflin-St Jeor\\nHarris-Benedict\\nKatch-McArdle\\n All these formulas have different levels of precision. Nonetheless, if you have your body fat % use Katch-McArdle as it will give youa more accurate number</string>
+    <string name="info_formulas">There are several formulas to calculate daily energy expenditures, such as:\n\n Mifflin-St Jeor\nHarris-Benedict\nKatch-McArdle\n\n All these formulas have acceptable levels of precision. Nonetheless, if you have your body fat % use Katch-McArdle as it will give you a more accurate number</string>
 
 </resources>
